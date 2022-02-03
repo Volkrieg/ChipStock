@@ -21,7 +21,7 @@
         if (isset($_GET['iduser'])) {
             header("HTTP/1.1 200 GET");
             $iduser = $_GET['iduser'];
-            $orden = "SELECT * FROM user WHERE iduser=$iduser";
+            $orden = "SELECT * FROM users WHERE iduser=$iduser";
             $res = $conexion->query($orden);
             $res_string = $res->fetch_all();
             echo json_encode($res_string);
@@ -48,7 +48,7 @@
         $nombre  = $_GET['nombre'];
         $apellido  = $_GET['apellido'];
         $rol  = $_GET['rol'];
-        $orden = "UPDATE users SET user='$user',pass='$pass',saldo=$saldo,email='$email',nombre='$nombre',apellido='$apellido', rol='$rol' WHERE iduser=$iduser";
+        $orden = "UPDATE users SET users='$user',pass='$pass',saldo=$saldo,email='$email',nombre='$nombre',apellido='$apellido', rol='$rol' WHERE iduser=$iduser";
         $conexion->query($orden);
         $orden = "SELECT * FROM users WHERE iduser='$iduser'";
         $res = $conexion->query($orden);
@@ -56,7 +56,7 @@
     } elseif ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
         header("HTTP/1.1 200 DELETE");
         $iduser = $_GET['iduser'];
-        $orden = "DELETE FROM user WHERE iduser=$iduser";
+        $orden = "DELETE FROM users WHERE iduser=$iduser";
         $conexion->query($orden);
     } else {
         header("HTTP/1.1 400 INVALID REQUEST");

@@ -347,25 +347,24 @@
                     </thead>
                     <tbody>
                         <?php
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $bd = "TiendaBBDD";
-                        $conexion = new mysqli($servername, $username, $password, $bd);
-                        $Select = " SELECT DISTINCT user,email,nombre,apellido, rol FROM users;";
-                        $Add = "INSERT INTO users (user,email,nombre,apellido) VALUES ($_POST[user],$_POST[email],$_POST[nombre],$_POST[apellido])";
-                        $resultado = $conexion->query($Select);
-
-                        function addUser($servername, $username, $password, $bd)
-                        {
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "";
+                            $bd = "TiendaBBDD";
                             $conexion = new mysqli($servername, $username, $password, $bd);
+                            $Select = " SELECT DISTINCT user,email,nombre,apellido, rol FROM users;";
                             $Add = "INSERT INTO users (user,email,nombre,apellido) VALUES ($_POST[user],$_POST[email],$_POST[nombre],$_POST[apellido])";
-                            $resultado = $conexion->query($Add);
-                        }
+                            $resultado = $conexion->query($Select);
 
-                        while ($columna = $resultado->fetch_assoc()) {
+                            function addUser($servername, $username, $password, $bd)
+                            {
+                                $conexion = new mysqli($servername, $username, $password, $bd);
+                                $Add = "INSERT INTO users (user,email,nombre,apellido) VALUES ($_POST[user],$_POST[email],$_POST[nombre],$_POST[apellido])";
+                                $resultado = $conexion->query($Add);
+                            }
+                            while ($columna = $resultado->fetch_assoc()) {
 
-                            echo "<tr>
+                                echo "<tr>
         <td>
             <span class='custom-checkbox'>
                 <input type='checkbox' id='checkbox5' name='options[]' value='1'>
@@ -383,8 +382,8 @@
         <a href='#deleteEmployeeModal' class='delete' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Delete'>&#xE872;</i></a>
     </td>
     </tr>";
-                        };
-
+                            };
+                        
 
                         ?>
                     </tbody>
