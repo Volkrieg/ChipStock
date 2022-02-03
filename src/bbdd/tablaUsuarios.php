@@ -350,24 +350,10 @@
                     </thead>
                     <tbody>
                         <?php
-<<<<<<< HEAD
-                        $servername = "localhost";
-                        $username = "root";
-                        $password = "";
-                        $bd = "TiendaBBDD";
-                        $conexion = new mysqli($servername, $username, $password, $bd);
-                        $Select = " SELECT DISTINCT user,email,nombre,apellido,saldo,rol FROM users;";
-                        $Add = "INSERT INTO users (user,email,nombre,apellido) VALUES ($_POST[user],$_POST[email],$_POST[nombre],$_POST[apellido])";
-                        $resultado = $conexion->query($Select);
-
-                        function addUser($servername, $username, $password, $bd)
-                        {
-=======
                             $servername = "localhost";
                             $username = "root";
                             $password = "";
                             $bd = "TiendaBBDD";
->>>>>>> 80fcdecd10b40602c0f1dac34f7e6d5ab1499ee6
                             $conexion = new mysqli($servername, $username, $password, $bd);
                             $Select = " SELECT DISTINCT user,email,nombre,apellido, rol FROM users;";
                             $Add = "INSERT INTO users (user,email,nombre,apellido) VALUES ($_POST[user],$_POST[email],$_POST[nombre],$_POST[apellido])";
