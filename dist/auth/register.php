@@ -13,7 +13,27 @@
     <link rel="stylesheet" href="styleLogin.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
+
+    <style>
+        .input__text {
+            
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .p-account {
+            margin-left: 65px;
+        }
+
+        input:invalid {
+            color: red;
+        }
+    </style>
 
 </head>
 
@@ -30,14 +50,14 @@
 
                             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Registrarse</h3>
 
-                            <input type="text" placeholder="usuario" id="usuario" class="input__text" name="user">
-                            <input type="text" placeholder="contraseña" id="pass" class="input__text" name="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Debe contener al menos un número y una letra mayúscula y minúscula, y al menos 6 o más caracteres">
-                            <input type="email" placeholder="correo electronico" name="email">
-                            <input type="text" placeholder="nombre" name="name">
-                            <input type="text" placeholder="apellido" name="subname">
-                            <input type="submit" name="enviar">
+                            <input type="text" placeholder="Nombre" name="name" class="input__text">
+                            <input type="text" placeholder="Apellidos" name="subname" class="input__text">
+                            <input type="text" placeholder="Usuario" id="usuario" class="input__text" name="user">
+                            <input type="text" placeholder="Contraseña" id="pass" class="input__text" name="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Debe contener al menos un número y una letra mayúscula y minúscula, y al menos 6 o más caracteres">
+                            <input type="email" placeholder="Correo electronico" name="email" class="input__text">
+                            <input type="submit" name="enviar" class="btn btn-secondary" value="Enviar">
 
-                            <p>Tienes una cuenta ya <a href="http://localhost/workspace-ES/Chipstock/login.php" class="link-info">Log in</a></p>
+                            <br><b>¿Ya estás registrado?<a href="http://localhost/workspace-ES/Chipstock/dist/auth/login.php" class="link-info">Log in</a></b>
 
                         </form>
 
