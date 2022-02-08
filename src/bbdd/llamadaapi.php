@@ -74,7 +74,7 @@
 
 
         if (!empty($_POST['user']) && !empty($_POST['contrasena']) && !empty($_POST['saldo']) && !empty($_POST['email']) && !empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['rol']))
-            $url = 'http://localhost/GIT/ChipStock/src/bbdd/CrudUsuario.php';
+            $url = 'http://localhost/Workspace/ChipStock/src/bbdd/CrudUsuario.php';
         $user  = $_POST['user'];
         $pass  = $_POST['contrasena'];
         $email  = $_POST['email'];
@@ -105,7 +105,7 @@
 
         if (!empty($_POST['iduser']))
             $iduser  = $_POST['iduser'];
-        $url = 'http://localhost/GIT/ChipStock/src/bbdd/CrudUsuario.php?iduser=' . $iduser;
+        $url = 'http://localhost/Workspace/ChipStock/src/bbdd/CrudUsuario.php?iduser=' . $iduser;
 
         $options = array(
             'http' => array(
@@ -142,15 +142,13 @@
         $nombre  = $_POST['nombreUPD'];
         $apellido  = $_POST['apellidoUPD'];
         $rol  = $_POST['rolUPD'];
-        $url = 'http://localhost/GIT/ChipStock/src/bbdd/CrudUsuario.php';
-        $data = array('iduser' => $iduser, 'user' => $user, 'contrasena' => $pass, 'email' => $email, 'saldo' => $saldo, 'nombre' => $nombre, 'apellido' => $apellido, 'rol' => $rol);
+        $url = 'http://localhost/Workspace/ChipStock/src/bbdd/CrudUsuario.php?iduser=' . $iduser . '&user=' . $user . '&contrasena=' . $pass . '&email=' . $email . '$saldo=' . $saldo . '&nombre=' . $nombre . '&apellido=' . $apellido . '&rol=' . $rol;
 
 
         $options = array(
             'http' => array(
                 'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
                 'method'  => 'PUT',
-                'content' => $data
             )
         );
 
