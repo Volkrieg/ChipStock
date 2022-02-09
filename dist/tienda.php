@@ -47,6 +47,7 @@
     </header>
 
     <?php
+    session_start();
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -83,27 +84,31 @@
             echo "<br><form METHOD = 'POST'>
                 <img src='./img/imgProduct.png'>
                 <input type = 'hidden' name = 'compra' value = '$idproduct'>
-                <input type = 'submit' value = 'Comprar producto'>
+                <button type = 'submit'> Añadir al carro </button> 
                   </form><br>";
         }
 
         if (!empty($_POST['compra'])) {
 
             $idproduct = $_POST['compra'];
-            $orden = " UPDATE users SET saldo = (SELECT saldo FROM users WHERE user = '" . $_SESSION['user'] . "') - (SELECT precio FROM products WHERE idproduct = " . $idproduct . ") WHERE user = '" . $_SESSION['user'] . "'";
-            if ($conexion->query($orden)) {
-                echo "Compra realizada <br>";
+            if(isset($_SESSION['carrito'])){
+                array_push($_SESSION['carrito'],$idproduct);
+            }else{
+                $_SESSION['carrito'] = array();
             }
 
-            $orden = "UPDATE products SET stock = (SELECT stock FROM products WHERE idproduct = " . $idproduct . ") - 1 WHERE idproduct = " . $idproduct . ";";
-            if ($conexion->query($orden)) {
-                echo "Compra realizada stock disminuido <br>";
-            }
         }
     }
 
+    
+
+
 
     ?>
+
+    <form action="http://localhost/Workspace/ChipStock/dist/ejecutarCarrito.php">
+        <input type = "submit" value = "Comprar">
+    </form>
 
 
     <!-- Footer-->
