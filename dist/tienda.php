@@ -31,8 +31,6 @@
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link" href="./tienda.php">Tienda</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio">Foro</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#team">Equipo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                     <li class="nav-item"><a class="nav-link" href="./client.php">Area Cliente</a></li>
                     <li class="nav-item"><a class="nav-link" href="auth/loginAdmin.php">Area Admin</a></li>
                 </ul>
@@ -77,17 +75,29 @@
         $orden = " SELECT * FROM products WHERE categoria = '" . $_POST['categoria'] . "';";
         $resultado = $conexion->query($orden);
 
+        echo "<div class='col-sm-4'>";
+
         while ($columna = $resultado->fetch_assoc()) {
             $idproduct = $columna['idproduct'];
-            echo "Nombre: " . $columna["nombre"] . " || Precio: " . $columna['precio'] . " || Categoría: " . $columna['categoria']  . " || Stock: " . $columna['stock'] . "<br>";
-            $columna['stock'] . "<br>";
-            echo "<br><form METHOD = 'POST'>
-                <img src='./img/imgProduct.png'>
-                <input type = 'hidden' name = 'compra' value = '$idproduct'>
-                <button type = 'submit'> Añadir al carro </button> 
-                  </form><br>";
+
+            echo "
+                    <div class='card' style='width: 18rem;'>
+                        <img src='...' class='card-img-top' alt='...'>
+                        <div class='card-body'>
+                            <h5 class='card-title'>" . $columna["nombre"] . "</h5>
+                            <p class='card-text'>" . $columna['precio'] . " €</p>
+                            <p class='card-text'>" . $columna['stock'] . " Unidades </p>
+                        <br><form METHOD = 'POST'>
+                            <input type = 'hidden' name = 'compra' value = '$idproduct'>
+                            <input type = 'submit' value = 'Comprar producto'>
+                            </form><br>
+                        </div>
+                    </div>
+
+                ";
         }
 
+        echo "</div>";
         if (!empty($_POST['compra'])) {
 
             $idproduct = $_POST['compra'];
@@ -163,7 +173,7 @@
             </div>
         </div>
     </footer>
-    
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>

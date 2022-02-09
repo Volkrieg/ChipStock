@@ -9,9 +9,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
 </head>
 <style>
     body {
@@ -317,7 +322,33 @@
 </head>
 
 <body>
-    <div class="container-xl">
+    <!--Navegador-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top"><span>ChipStock</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="./tienda.php">Tienda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ChipStock/forum/index.php">Foro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./client.php">Area Cliente</a></li>
+                    <li class="nav-item"><a class="nav-link" href="auth/loginAdmin.php">Area Admin</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-heading text-uppercase"></div>
+        </div>
+    </header>
+    <!-- Services-->
+    <div class="container-xl" id="panelUser">
         <div class="table-responsive">
             <div class="table-wrapper">
                 <div class="table-title">
@@ -327,7 +358,7 @@
                         </div>
                         <div class="col-sm-6">
                             <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Añadir Usuario</span></a>
-                            <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Borrar Usuario</span></a>
+                            <a href="#deleteUser" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Borrar Usuario</span></a>
                         </div>
                     </div>
                 </div>
@@ -350,24 +381,24 @@
                     </thead>
                     <tbody>
                         <?php
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "";
-                            $bd = "TiendaBBDD";
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $bd = "TiendaBBDD";
+                        $conexion = new mysqli($servername, $username, $password, $bd);
+                        $Select = " SELECT DISTINCT user,email,nombre,apellido, rol FROM users;";
+                        $Add = "INSERT INTO users (user,email,nombre,apellido) VALUES ($_POST[user],$_POST[email],$_POST[nombre],$_POST[apellido])";
+                        $resultado = $conexion->query($Select);
+
+                        function addUser($servername, $username, $password, $bd)
+                        {
                             $conexion = new mysqli($servername, $username, $password, $bd);
-                            $Select = " SELECT DISTINCT user,email,nombre,apellido, rol FROM users;";
                             $Add = "INSERT INTO users (user,email,nombre,apellido) VALUES ($_POST[user],$_POST[email],$_POST[nombre],$_POST[apellido])";
-                            $resultado = $conexion->query($Select);
+                            $resultado = $conexion->query($Add);
+                        }
+                        while ($columna = $resultado->fetch_assoc()) {
 
-                            function addUser($servername, $username, $password, $bd)
-                            {
-                                $conexion = new mysqli($servername, $username, $password, $bd);
-                                $Add = "INSERT INTO users (user,email,nombre,apellido) VALUES ($_POST[user],$_POST[email],$_POST[nombre],$_POST[apellido])";
-                                $resultado = $conexion->query($Add);
-                            }
-                            while ($columna = $resultado->fetch_assoc()) {
-
-                                echo "<tr>
+                            echo "<tr>
         <td>
             <span class='custom-checkbox'>
                 <input type='checkbox' id='checkbox5' name='options[]' value='1'>
@@ -384,11 +415,11 @@
         </td>
         <td>
         <a href='#editEmployeeModal' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Editar'>&#xE254;</i></a>
-        <a href='#deleteEmployeeModal' class='delete' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Borrar'>&#xE872;</i></a>
+        <a href='#deleteUser' class='delete' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Borrar'>&#xE872;</i></a>
     </td>
     </tr>";
-                            };
-                        
+                        };
+
 
                         ?>
                     </tbody>
@@ -408,19 +439,31 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Usuario</label>
-                            <input type="text" class="form-control" required name="user">
+                            <input type="text" class="form-control" required name="user" name="user">
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="pass" class="form-control" required name="pass" name="pass">
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control" required name="email">
+                            <input type="email" class="form-control" required name="email" name="email">
                         </div>
                         <div class="form-group">
                             <label>Nombre</label>
-                            <input type="text" class="form-control" required name="nombre">
+                            <input type="text" class="form-control" required name="nombre" name="nombre">
                         </div>
                         <div class="form-group">
                             <label>Apellido</label>
-                            <input type="text" class="form-control" required name="apellido">
+                            <input type="text" class="form-control" required name="apellido" name="apellido">
+                        </div>
+                        <div class="form-group">
+                            <label>Saldo</label>
+                            <input type="text" class="form-control" required name="saldo" name="saldo">
+                        </div>
+                        <div class="form-group">
+                            <label>Rol</label>
+                            <input type="text" class="form-control" required name="rol" name="rol">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -431,8 +474,37 @@
             </div>
         </div>
     </div>
+
+    <?php
+
+    $url = 'http://localhost/Api/ChipStock/src/bbdd/CrudUsuario.php';
+    $user  = $_POST['user'];
+    $pass  = $_POST['contrasena'];
+    $email  = $_POST['email'];
+    $saldo  = $_POST['saldo'];
+    $nombre  = $_POST['nombre'];
+    $apellido  = $_POST['apellido'];
+    $rol  = $_POST['rol'];
+
+    $data = array('user' => $user, 'user' => $pass, 'pass' => $email, 'saldo' => $saldo, 'nombre' => $nombre, 'apellido' => $apellido, 'rol' => $rol);
+
+    $options = array(
+        'http' => array(
+            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method'  => 'POST',
+            'content' => http_build_query($data)
+        )
+    );
+    $context  = stream_context_create($options);
+    $result = file_get_contents($url, false, $context);
+    if ($result === FALSE) { /* Handle error */
+    }
+
+    var_dump($result);
+
+    ?>
     <!-- Botonera de control -->
-    <div id="editEmployeeModal" class="modal fade">
+    <div id="editUser" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form>
@@ -467,7 +539,7 @@
         </div>
     </div>
     <!-- Delete Modal HTML -->
-    <div id="deleteEmployeeModal" class="modal fade">
+    <div id="deleteUser" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form>
