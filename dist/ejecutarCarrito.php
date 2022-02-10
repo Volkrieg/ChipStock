@@ -20,4 +20,4 @@ if ($conexion->query($orden)) {
 }
 
 $_SESSION['carrito'] = array();
-header('Location: http://localhost/Workspace/ChipStock/dist/tiendaCarrito.php?');
+header('Location: http://localhost/Workspace/ChipStock/dist/tienda.php?');
