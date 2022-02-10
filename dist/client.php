@@ -72,7 +72,7 @@
         echo "</br>Usuario: " . $columna["user"] . "</br>Rol: " . $columna['rol'] . "</br> Contraseña: " . $columna['pass'] . "</br>Nombre: " . $columna['nombre'] . "</br>Apellido: " . $columna['apellido'] . "</br>Email: " . $columna['email'] . "</br>Saldo: " . $columna['saldo'] .  "<br>";
     }
 
-    if (!empty($_POST['saldo'])) {
+    if (!empty($_POST['saldo'])&&$_POST['saldo']>0) {
         $saldo = $_POST['saldo'];
         $orden = " UPDATE users SET saldo = (SELECT saldo FROM users WHERE user = '" . $_SESSION['user'] . "') + " . $saldo . " WHERE user = '" . $_SESSION['user'] . "';";
         if ($conexion->query($orden)) {

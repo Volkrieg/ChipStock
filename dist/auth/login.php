@@ -34,7 +34,7 @@ while ($columna = $orden->fetch_assoc()) {
             $_SESSION['user'] = $_POST['user'];
 
             if (isset($_SESSION['user'])) {
-                header("location:http://localhost/workspace-ES/Chipstock/dist/index.html");
+                header("location:http://localhost/workspace/Chipstock/dist/index.html");
                 ob_end_flush();
             }
         } else {

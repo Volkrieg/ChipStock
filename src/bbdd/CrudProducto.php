@@ -32,6 +32,7 @@
             $res = $conexion->query($orden);
             $res_string = $res->fetch_all();
             echo json_encode($res_string);
+        
         } else {
             header("HTTP/1.1 200 todo");
             $orden = "SELECT * FROM products";

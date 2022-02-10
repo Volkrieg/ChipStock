@@ -74,6 +74,7 @@
     <button type = 'submit'> Seleccionar </button> 
     </form>";
 
+    if (!empty($_POST['categoria'])){
         $orden = " SELECT * FROM products WHERE categoria = '" . $_POST['categoria'] . "';";
         $resultado = $conexion->query($orden);
 
@@ -87,6 +88,7 @@
                 <button type = 'submit'> Añadir al carro </button> 
                   </form><br>";
         }
+    }
 
         if (!empty($_POST['compra'])) {
 
@@ -106,7 +108,10 @@
     ?>
 
     <form action="http://localhost/Workspace/ChipStock/dist/ejecutarCarrito.php">
-        <input type="submit" value="Comprar">
+        <input type="submit" value="Finalizar compra">
+    </form>
+    <form action="http://localhost/Workspace/ChipStock/dist/vaciarCarrito.php">
+        <input type="submit" value="Vaciar carrito">
     </form>
 
 
