@@ -32,6 +32,13 @@
             $res = $conexion->query($orden);
             $res_string = $res->fetch_all();
             echo json_encode($res_string);
+        } else if (isset($_GET['idproduct'])) {
+            header("HTTP/1.1 200 id");
+            $idproduct = $_GET['idproduct'];
+            $orden = "SELECT * FROM products WHERE idproduct=$idproduct";
+            $res = $conexion->query($orden);
+            $res_string = $res->fetch_all();
+            echo json_encode($res_string);
         
         } else {
             header("HTTP/1.1 200 todo");
