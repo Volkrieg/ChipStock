@@ -13,7 +13,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $bd = "TiendaBBDD";
+    $bd = "ChipStock";
 
     $conexion = new mysqli($servername, $username, $password, $bd);
 
@@ -64,7 +64,7 @@
         $nombre = $_GET['nombre'];
         $precio = $_GET['precio'];
         $stock  = $_GET['stock'];
-        $imagen = "../src/assets/img/product/" . $_POST['imagen'];
+        $imagen = "../src/assets/img/product/" . $_GET['imagen'];
         $orden = "UPDATE products SET categoria='$categoria',nombre='$nombre',precio=$precio,stock=$stock,imagen='$imagen' WHERE idproduct=$idprod";
         $conexion->query($orden);
         $orden = "SELECT * FROM products WHERE idproduct='$idprod'";
