@@ -51,7 +51,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $bd = "TiendaBBDD";
+    $bd = "ChipStock";
     $conexion = new mysqli($servername, $username, $password, $bd);
     $orden = " SELECT DISTINCT categoria FROM products;";
     $resultado = $conexion->query($orden);
@@ -80,7 +80,7 @@
 
         while ($columna = $resultado->fetch_assoc()) {
             $idproduct = $columna['idproduct'];
-            echo "Nombre: " . $columna["nombre"] . " || Precio: " . $columna['precio'] . " || Categoría: " . $columna['categoria']  . " || Stock: " . $columna['stock'] . "<br>";
+            echo "Nombre: " . $columna["nombre"] . " || Precio: " . $columna['precio'] . " || Categoría: " . $columna['categoria']  . " || Stock: " . $columna['stock'] . "<img src = '" . $columna['imagen'] . "' width = '20%'>" . "<br>";
             $columna['stock'] . "<br>";
             echo "<br><form METHOD = 'POST'>
                 <img src='./img/imgProduct.png'>
