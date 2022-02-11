@@ -53,7 +53,8 @@
         $nombre = $_POST['nombre'];
         $precio = $_POST['precio'];
         $stock  = $_POST['stock'];
-        $orden = "INSERT INTO products(categoria,nombre,precio,stock) VALUES('$categoria','$nombre',$precio,$stock)";
+        $imagen = "../src/assets/img/product/" . $_POST['imagen'];
+        $orden = "INSERT INTO products(categoria,nombre,precio,stock,imagen) VALUES('$categoria','$nombre',$precio,$stock,'$imagen')";
         $conexion->query($orden);
         echo json_encode($conexion->insert_id);
     } elseif ($_SERVER['REQUEST_METHOD'] == 'PUT') {
@@ -63,7 +64,8 @@
         $nombre = $_GET['nombre'];
         $precio = $_GET['precio'];
         $stock  = $_GET['stock'];
-        $orden = "UPDATE products SET categoria='$categoria',nombre='$nombre',precio=$precio,stock=$stock WHERE idproduct=$idprod";
+        $imagen = "../src/assets/img/product/" . $_POST['imagen'];
+        $orden = "UPDATE products SET categoria='$categoria',nombre='$nombre',precio=$precio,stock=$stock,imagen='$imagen' WHERE idproduct=$idprod";
         $conexion->query($orden);
         $orden = "SELECT * FROM products WHERE idproduct='$idprod'";
         $res = $conexion->query($orden);
