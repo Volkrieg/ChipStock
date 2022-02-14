@@ -12,9 +12,9 @@ $passHash = password_hash("root", PASSWORD_BCRYPT);
 $conexion = new mysqli($servername, $username, $password);
 
 if ($conexion->connect_error) {
-    echo "Conexion no establecida \n" . $conexion->connect_error;
+    echo "Conexion no establecida <br>" . $conexion->connect_error;
 } else {
-    echo "Conexion realizada \n";
+    echo "Conexion realizada <br>";
 }
 
 $createBBDD = "CREATE DATABASE ChipStock";
@@ -25,9 +25,9 @@ $conexion = new mysqli($servername, $username, $password, $bbdd);
 
 $createTableUsers = "CREATE TABLE users(
     iduser INT(100) NOT NULL AUTO_INCREMENT,
-    user   VARCHAR(30),
-    pass  VARCHAR(120),
-    email VARCHAR(60),
+    user   VARCHAR(30) NOT NULL UNIQUE,
+    pass  VARCHAR(120) NOT NULL,
+    email VARCHAR(60) NOT NULL,
     nombre VARCHAR(40),
     apellido VARCHAR(40),
     rol VARCHAR(60),
@@ -37,9 +37,9 @@ $createTableUsers = "CREATE TABLE users(
 
 $createTableAdmin = "CREATE TABLE administrador(
     idadmin INT(100) NOT NULL AUTO_INCREMENT,
-    user   VARCHAR(30),
-    pass  VARCHAR(120),
-    email VARCHAR(60),
+    user   VARCHAR(30) NOT NULL UNIQUE,
+    pass  VARCHAR(120) NOT NULL,
+    email VARCHAR(60) NOT NULL,
     nombre VARCHAR(40),
     apellido VARCHAR(40),
     rol VARCHAR(60),
