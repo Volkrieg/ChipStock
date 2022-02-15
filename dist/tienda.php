@@ -107,10 +107,10 @@
 
     ?>
 
-    <form action="http://localhost/Workspace/ChipStock/dist/ejecutarCarrito.php">
+    <form action="./ejecutarCarrito.php">
         <input type="submit" value="Finalizar compra">
     </form>
-    <form action="http://localhost/Workspace/ChipStock/dist/vaciarCarrito.php">
+    <form action="./vaciarCarrito.php">
         <input type="submit" value="Vaciar carrito">
     </form>
 

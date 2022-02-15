@@ -3,7 +3,7 @@ session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
-$bd = "TiendaBBDD";
+$bd = "ChipStock";
 $conexion = new mysqli($servername, $username, $password, $bd);
 
 for ($i=0;$i<count($_SESSION['carrito']);$i++){
@@ -19,4 +19,4 @@ if ($conexion->query($orden)) {
 }
 }
 
-header('Location: http://localhost/Workspace/ChipStock/dist/vaciarCarrito.php?');
+header('Location:./vaciarCarrito.php?');

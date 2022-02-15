@@ -14,7 +14,7 @@ $passw = $_POST['pass'];
 $servername = "localhost";
 $username = "root";
 $password = "";
-$bbdd = "TiendaBBDD";
+$bbdd = "ChipStock";
 
 // Crear conexión con la base de datos.
 $conexion = new mysqli($servername, $username, $password, $bbdd);
@@ -34,7 +34,7 @@ while ($columna = $orden->fetch_assoc()) {
             $_SESSION['user'] = $_POST['user'];
 
             if (isset($_SESSION['user'])) {
-                header("location:http://localhost/workspace/Chipstock/dist/index.html");
+                header("location:../");
                 ob_end_flush();
             }
         } else {
