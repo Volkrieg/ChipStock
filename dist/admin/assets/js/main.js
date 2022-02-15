@@ -12,16 +12,18 @@
 	   	loadTableData();
 		$("#registro").click(function(e){
 			e.preventDefault();
-			var nombre = $("#nombre").val();
+			var usuario = $("#usuario").val();
 			var email = $("#email").val();
-			var pais = $("#pais").val();
-			var pwd = $("#pwd").val();
-			if(nombre !=="" && email !=="" && pais !=="" && pwd !==""){
+			var nombre = $("#nombre").val();
+			var rol = $("#rol").val();
+			var saldo = $("#saldo").val();
+			var password = $("#password").val();
+			if(usuario !=="" && email !=="" && nombre !=="" && rol !=="" && password !=="" && saldo !==""){
 				$.ajax({
 					url : "accion.php",
 					type: "POST",
 					cache: false,
-					data : {nombre:nombre,email:email,pais:pais, pwd:pwd},
+					data : {usuario:usuario,email:email, nombre:nombre, rol:rol, saldo:saldo, password:password},
 					success:function(data){
 						alert("Datos insertados correctamente");
 						$("#clienteForm")[0].reset();
@@ -36,13 +38,13 @@
 		// Eliminar registro a MySql desde PHP usando jQuery AJAX
 		$(document).on("click",".borrar-btn",function(){
 			if (confirm("¿Estás seguro de eliminar esto?")) {
-				var id = $(this).data('iduser');
+				var id = $(this).data('id');
 				var element = this;
 				$.ajax({
 					url :"borrar.php",
 					type:"POST",
 					cache:false,
-					data:{borrarId:iduser},
+					data:{borrarId:id},
 					success:function(data){
 						if (data == 1) {
 							$(element).closest("tr").fadeOut();
@@ -72,18 +74,20 @@
 		// User record update to mysqli from php using jquery ajax
 		$(document).on("click","#editarSubmit", function(){
 			var editar_id = $("#editarId").val();
+			var usuario = $("#editarUsuario").val();
 			var nombre = $("#editarNombre").val();
 			var email = $("#editarEmail").val();
-			var pais = $("#editarPais").val();
+			var rol = $("#editarRol").val();
+			var saldo = $("#editarSaldo").val();
 			var password = $("#editarPassword").val();
 			
 			$.ajax({
 				url:"actualizar.php",
 				type:"POST",
 				cache:false,
-				data:{editar_id:editar_id,nombre:nombre,email:email,pais:pais,password:password},
+				data:{editar_id:editar_id,usuario:usuario,nombre:nombre,email:email,rol:rol,saldo:saldo,password:password},
 				success:function(data){
-					if (data ==1) {
+					if (data == 1) {
 						alert("Registro de usuario actualizado correctamente");
 						loadTableData();
 					}else{

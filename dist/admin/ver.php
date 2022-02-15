@@ -30,8 +30,8 @@
 						<td>{$row['email']}</td>
 						<td>{$row['rol']}</td>
 						<td>{$row['saldo']}</td>
-						<td><button class='btn btn-success btn-sm editar-btn' data-id='{$row['id']}' data-toggle='modal' data-target='#exampleModal'>Editar</button></td>
-						<td><button class='btn btn-danger btn-sm borrar-btn' data-id='{$row['id']}'>Borrar</button></td>
+						<td><button class='btn btn-success btn-sm editar-btn' data-id='{$row['iduser']}' data-toggle='modal' data-target='#exampleModal'>Editar</button></td>
+						<td><button class='btn btn-danger btn-sm borrar-btn' data-id='{$row['iduser']}'>Borrar</button></td>
 					</tr>
 			</tbody>";
 		}
