@@ -74,21 +74,21 @@
     <button type = 'submit'> Seleccionar </button> 
     </form>";
 
-    if (!empty($_POST['categoria'])){
-        $orden = " SELECT * FROM products WHERE categoria = '" . $_POST['categoria'] . "';";
-        $resultado = $conexion->query($orden);
+        if (!empty($_POST['categoria'])) {
+            $orden = " SELECT * FROM products WHERE categoria = '" . $_POST['categoria'] . "';";
+            $resultado = $conexion->query($orden);
 
-        while ($columna = $resultado->fetch_assoc()) {
-            $idproduct = $columna['idproduct'];
-            echo "Nombre: " . $columna["nombre"] . " || Precio: " . $columna['precio'] . " || Categoría: " . $columna['categoria']  . " || Stock: " . $columna['stock'] . "<img src = '" . $columna['imagen'] . "' width = '20%'>" . "<br>";
-            $columna['stock'] . "<br>";
-            echo "<br><form METHOD = 'POST'>
+            while ($columna = $resultado->fetch_assoc()) {
+                $idproduct = $columna['idproduct'];
+                echo "Nombre: " . $columna["nombre"] . " || Precio: " . $columna['precio'] . " || Categoría: " . $columna['categoria']  . " || Stock: " . $columna['stock'] . "<img src = '" . $columna['imagen'] . "' width = '20%'>" . "<br>";
+                $columna['stock'] . "<br>";
+                echo "<br><form METHOD = 'POST'>
                 <img src='./img/imgProduct.png'>
                 <input type = 'hidden' name = 'compra' value = '$idproduct'>
                 <button type = 'submit'> Añadir al carro </button> 
                   </form><br>";
+            }
         }
-    }
 
         if (!empty($_POST['compra'])) {
 
@@ -114,6 +114,11 @@
         <input type="submit" value="Vaciar carrito">
     </form>
 
+    <?php
+    if (!empty($_SESSION['mensaje'])) {
+        echo $_SESSION['mensaje'];
+    }
+    ?>
 
     <!-- Footer-->
     <footer class="footer py-4">
