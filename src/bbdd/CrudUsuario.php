@@ -13,7 +13,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $bd = "TiendaBBDD";
+    $bd = "ChipStock";
 
     $conexion = new mysqli($servername, $username, $password, $bd);
 
@@ -22,6 +22,13 @@
             header("HTTP/1.1 200 GET");
             $iduser = $_GET['iduser'];
             $orden = "SELECT * FROM users WHERE iduser=$iduser";
+            $res = $conexion->query($orden);
+            $res_string = $res->fetch_all();
+            echo json_encode($res_string);
+        }else if (isset($_GET['usuario'])){
+            header("HTTP/1.1 200 GET");
+            $usuario = $_GET['usuario'];
+            $orden = "SELECT * FROM users WHERE user='$usuario'";
             $res = $conexion->query($orden);
             $res_string = $res->fetch_all();
             echo json_encode($res_string);
