@@ -57,7 +57,7 @@
                             <input type="email" placeholder="Correo electronico" name="email" class="input__text">
                             <input type="submit" name="enviar" class="btn btn-secondary" value="Enviar">
 
-                            <br><b>¿Ya estás registrado?<a href="http://localhost/workspace-ES/Chipstock/dist/auth/login.php" class="link-info">Log in</a></b>
+                            <br><b>¿Ya estás registrado?<a href="./login.html" class="link-info">Log in</a></b>
 
                         </form>
 
@@ -136,7 +136,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $bbdd = "TiendaBBDD";
+    $bbdd = "ChipStock";
     $conexion = new mysqli($servername, $username, $password, $bbdd);
 
     //Hasheo de la contraseña con la conexion y guardar los datos en la BBDD

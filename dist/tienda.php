@@ -98,7 +98,7 @@
             while ($columna = $resultado->fetch_assoc()) {
                 $idproduct = $columna['idproduct'];
 
-echo"
+                echo "
                         <div class='col mb-5'>
                             <div class='card h-100'>
                                 <!-- Product image-->
@@ -123,7 +123,6 @@ echo"
                                 </div>     
                         </div>
                     </div>";
-                                
             }
         }
 
@@ -149,13 +148,18 @@ echo"
 
     ?>
 
-    <form action="http://localhost/Workspace/ChipStock/dist/ejecutarCarrito.php">
+    <form action="./ejecutarCarrito.php">
         <input type="submit" value="Finalizar compra">
     </form>
-    <form action="http://localhost/Workspace/ChipStock/dist/vaciarCarrito.php">
+    <form action="./vaciarCarrito.php">
         <input type="submit" value="Vaciar carrito">
     </form>
 
+    <?php
+    if (!empty($_SESSION['mensaje'])) {
+        echo $_SESSION['mensaje'];
+    }
+    ?>
 
     <!-- Footer-->
     <footer class="footer py-4">

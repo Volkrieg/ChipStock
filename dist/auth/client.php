@@ -60,7 +60,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $bd = "TiendaBBDD";
+    $bd = "ChipStock";
     $user = $_SESSION['user'];
     $conexion = new mysqli($servername, $username, $password, $bd);
     $orden = " SELECT * FROM users WHERE user = '$user';";
