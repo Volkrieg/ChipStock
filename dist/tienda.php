@@ -20,9 +20,9 @@
 
 <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-xl navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="./index.html"><span>ChipStock</span></a>
+            <a class="navbar-brand" href="#page-top"><span>ChipStock</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars ms-1"></i>
@@ -30,14 +30,26 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link" href="./tienda.php">Tienda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Foro</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#team">Equipo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./client.php">Area Cliente</a></li>
-                    <li class="nav-item"><a class="nav-link" href="auth/loginAdmin.php">Area Admin</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ChipStock/forum/index.php">Foro</a></li>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle dropdown-dark" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i>
+                            Perfil
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="auth/loginAdmin.php"><i class="fas fa-user-secret"></i>Area
+                                    Admin</a></li>
+                            <li><a class="dropdown-item" href="auth/client.php"><i class="fas fa-id-card"></i>Area
+                                    Cliente</a></li>
+                            <div class="dropdown-divider"></div>
+                            <li><a class="dropdown-item" href="auth/login.html"><i class="fas fa-power-off"></i>Log
+                                    In</a></li>
+                            <li><a class="dropdown-item" href="auth/register.php"><i class="fas fa-edit"></i>Registrate</a></li>
+                        </ul>
+                    </div>
                 </ul>
+
             </div>
-        </div>
+
     </nav>
     <!-- Masthead-->
     <header class="masthead">
@@ -72,23 +84,53 @@
         echo "
     </select class='form-select'>
     <button type = 'submit'> Seleccionar </button> 
-    </form>";
+    </form>
+   
+    <section class='py-5'>
+            <div class='container px-4 px-lg-5 mt-5'>
+                <div class='row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center'>
+                    ";
 
-    if (!empty($_POST['categoria'])){
-        $orden = " SELECT * FROM products WHERE categoria = '" . $_POST['categoria'] . "';";
-        $resultado = $conexion->query($orden);
+        if (!empty($_POST['categoria'])) {
+            $orden = " SELECT * FROM products WHERE categoria = '" . $_POST['categoria'] . "';";
+            $resultado = $conexion->query($orden);
 
-        while ($columna = $resultado->fetch_assoc()) {
-            $idproduct = $columna['idproduct'];
-            echo "Nombre: " . $columna["nombre"] . " || Precio: " . $columna['precio'] . " || Categoría: " . $columna['categoria']  . " || Stock: " . $columna['stock'] . "<img src = '" . $columna['imagen'] . "' width = '20%'>" . "<br>";
-            $columna['stock'] . "<br>";
-            echo "<br><form METHOD = 'POST'>
-                <img src='./img/imgProduct.png'>
-                <input type = 'hidden' name = 'compra' value = '$idproduct'>
-                <button type = 'submit'> Añadir al carro </button> 
-                  </form><br>";
+            while ($columna = $resultado->fetch_assoc()) {
+                $idproduct = $columna['idproduct'];
+
+echo"
+                        <div class='col mb-5'>
+                            <div class='card h-100'>
+                                <!-- Product image-->
+                                <img class='card-img-top' src='" . $columna['imagen'] . "' alt='...' />
+                                <!-- Product details-->
+                                <div class='card-body p-4'>
+                                    <div class='text-center'>
+                                        <!-- Product name-->
+                                        <h5 class='fw-bolder'>" . $columna['nombre'] . "</h5>
+                                        <!-- Product price-->
+                                        " . $columna['precio'] . " €
+                                    </div>
+                                </div>
+                                <!-- Product actions-->
+                                <div class='card-footer p-4 pt-0 border-top-0 bg-transparent'>
+
+                                <br><form METHOD = 'POST'>
+
+                                <input type = 'hidden' name = 'compra' value = '$idproduct'>
+                                                <button type = 'submit'> Añadir al carro </button> 
+                                                  </form><br>
+                                </div>     
+                        </div>
+                    </div>";
+                                
+            }
         }
-    }
+
+        echo "                      
+        </div>
+    </div>
+</section>";
 
         if (!empty($_POST['compra'])) {
 
