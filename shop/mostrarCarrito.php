@@ -63,13 +63,14 @@ function getPrecioCarro()
     return $precioSuma;
 }
 
-    
-$contenidoCarro = "";
-$precioCarro = "";
+function carro()
+{
+    $contenidoCarro = "";
+    $precioCarro = "";
 
-if (!isset($_SESSION['carroNombres'])) {
-    $_SESSION['carroNombres'] = array();
-} else {
+    if (!isset($_SESSION['carroNombres'])) {
+        $_SESSION['carroNombres'] = array();
+    } else {
 
         for ($i = 0; $i < count($_SESSION['carrito']); $i++) {
 
@@ -82,14 +83,11 @@ if (!isset($_SESSION['carroNombres'])) {
 
         $_SESSION['carrito'] = array();
 
-    foreach ($_SESSION['carroNombres'] as $clave => $valor) {
-        $contenidoCarro .= $clave . " x" . $valor . "<br>";
+        foreach ($_SESSION['carroNombres'] as $clave => $valor) {
+            $contenidoCarro .= $clave . " x" . $valor . "<br>";
+        }
+
+
+        $precioCarro .= getPrecioCarro() . "€";
     }
-    
-
-    $precioCarro .= getPrecioCarro() . "€";
-
-    echo $contenidoCarro;
-
-
 }

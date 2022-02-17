@@ -59,7 +59,7 @@
     </header>
 
     <?php
-    session_start();
+    include ('mostrarCarrito.php');
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -155,24 +155,11 @@
     if (!empty($_SESSION['mensaje'])) {
         echo $_SESSION['mensaje'];
     }
+
+    carro();
+
     foreach ($_SESSION["carroNombres"] as $key => $value) {
-        echo "<table class='table table-bordered' id='Carrito'>
-        <thead>
-            <h3>Carrito</h3>
-            <tr>
-                <th scope='col'>Producto</th>
-                <th scope='col'>Precio</th>
-                <th scope='col'>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>".$key."</td>
-                <td>".$value."</td>
-                <td>".$precioCarro."</td>
-            </tr>
-        </tbody>
-    </table>";
+        echo $key . " => " . $value;
     }
     ?>
 
