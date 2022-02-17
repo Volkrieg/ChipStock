@@ -87,8 +87,6 @@ if (!isset($_SESSION['carroNombres'])) {
 
     $precioCarro .= getPrecioCarro() . "€";
 
-    echo $contenidoCarro;
-    echo $precioCarro;
 
 
 }
