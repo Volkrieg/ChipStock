@@ -31,6 +31,10 @@
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link" href="./tienda.php">Tienda</a></li>
                     <li class="nav-item"><a class="nav-link" href="ChipStock/forum/index.php">Foro</a></li>
+                    <!-- Button trigger modal -->
+                    <button type='button' class='fab fa-shopping-cart' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
+                        Carrito Compra
+                    </button>
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle dropdown-dark" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i>
                             Perfil
@@ -59,7 +63,7 @@
     </header>
 
     <?php
-    include ('mostrarCarrito.php');
+    include('mostrarCarrito.php');
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -142,27 +146,49 @@
         }
     }
 
-    ?>
-
-    <form action="./ejecutarCarrito.php">
-        <input type="submit" value="Finalizar compra">
-    </form>
-    <form action="./vaciarCarrito.php">
-        <input type="submit" value="Vaciar carrito">
-    </form>
-
-    <?php
     if (!empty($_SESSION['mensaje'])) {
         echo $_SESSION['mensaje'];
     }
 
     carro();
 
-    foreach ($_SESSION["carroNombres"] as $key => $value) {
-        echo $key . " => " . $value;
-    }
-    ?>
+    echo "<div class='modal fade' id='staticBackdrop' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
+    <div class='modal-dialog'>
+      <div class='modal-content'>
+        <div class='modal-header'>
+          <h5 class='modal-title' id='staticBackdropLabel'>Carrito</h5>
+          <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+        </div>
+        <div class='modal-body'>
+            <table class='table'>
+                <thead>
+                  <tr>
+                    <th scope='col'>Nombre</th>
+                    <th scope='col'>Cant</th>
+                  </tr>
+                </thead>";
 
+    foreach ($_SESSION["carroNombres"] as $key => $value) {
+        echo " <tbody>
+        <tr>
+          <td>" . $key . "</td>
+          <td>" . $value . "</td>
+          <td>" . getPrecioCarro() . "</td>
+        </tr>
+      </tbody>";
+    }
+
+    echo "  </table>
+    <h3> Total:" . getPrecioCarro() . "</td>
+    </div>
+    <div class='modal-footer'>
+      <button type='button' class='btn btn-danger' data-bs-dismiss='modal'>Cancelar</button>
+      <button type='button' class='btn btn-primary'>Comprar</button>
+    </div>
+  </div>
+</div>
+</div>";
+    ?>
     <!-- Footer-->
     <footer class="footer py-4">
         <div class="container">
