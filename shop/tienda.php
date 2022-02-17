@@ -32,8 +32,8 @@
                     <li class="nav-item"><a class="nav-link" href="./tienda.php">Tienda</a></li>
                     <li class="nav-item"><a class="nav-link" href="ChipStock/forum/index.php">Foro</a></li>
                     <!-- Button trigger modal -->
-                    <button type='button' class='fab fa-shopping-cart' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
-                        Carrito Compra
+                    <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
+                        <i class="fas fa-shopping-cart"></i>
                     </button>
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle dropdown-dark" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i>
@@ -173,13 +173,11 @@
         <tr>
           <td>" . $key . "</td>
           <td>" . $value . "</td>
-          <td>" . getPrecioCarro() . "</td>
         </tr>
       </tbody>";
     }
 
     echo "  </table>
-    <h3> Total:" . getPrecioCarro() . "</td>
     </div>
     <div class='modal-footer'>
       <button type='button' class='btn btn-danger' data-bs-dismiss='modal'>Cancelar</button>

@@ -14,8 +14,8 @@
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-   <!-- Core theme CSS (includes Bootstrap)-->
-   <link href="../css/styles.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../css/styles.css" rel="stylesheet" />
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
@@ -23,12 +23,11 @@
 </head>
 
 <body id="page-top">
-      <!-- Navigation-->
-      <nav class="navbar navbar-expand-xl navbar-dark fixed-top" id="mainNav">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-xl navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="../../index.html"><span>ChipStock</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars ms-1"></i>
             </button>
@@ -37,13 +36,11 @@
                     <li class="nav-item"><a class="nav-link" href="../tienda.php">Tienda</a></li>
                     <li class="nav-item"><a class="nav-link" href="../../forum/index.php">Foro</a></li>
                     <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle dropdown-dark" type="button" id="dropdownMenu1"
-                            data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i>
+                        <button class="btn btn-primary dropdown-toggle dropdown-dark" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i>
                             Perfil
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="..\..\shop\auth\loginAdmin.php"><i
-                                        class="fas fa-user-secret"></i> Area
+                            <li><a class="dropdown-item" href="..\..\shop\auth\loginAdmin.php"><i class="fas fa-user-secret"></i> Area
                                     Admin</a></li>
                             <li><a class="dropdown-item" href="..\..\shop\auth\client.php"><i class="fas fa-id-card"></i>
                                     Area
@@ -91,7 +88,7 @@
         echo "</br>Usuario: " . $columna["user"] . "</br>Rol: " . $columna['rol'] . "</br> Contraseña: " . $columna['pass'] . "</br>Nombre: " . $columna['nombre'] . "</br>Apellido: " . $columna['apellido'] . "</br>Email: " . $columna['email'] . "</br>Saldo: " . $columna['saldo'] .  "<br>";
     }
 
-    if (!empty($_POST['saldo'])&&$_POST['saldo']>0) {
+    if (!empty($_POST['saldo']) && $_POST['saldo'] > 0) {
         $saldo = $_POST['saldo'];
         $orden = " UPDATE users SET saldo = (SELECT saldo FROM users WHERE user = '" . $_SESSION['user'] . "') + " . $saldo . " WHERE user = '" . $_SESSION['user'] . "';";
         if ($conexion->query($orden)) {
