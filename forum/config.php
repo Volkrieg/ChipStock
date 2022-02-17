@@ -4,7 +4,7 @@
 $dbms = 'phpbb\\db\\driver\\mysqli';
 $dbhost = 'localhost';
 $dbport = '';
-$dbname = 'TiendaBBDD';
+$dbname = 'Chipstock';
 $dbuser = 'root';
 $dbpasswd = '';
 $table_prefix = 'forum_';
