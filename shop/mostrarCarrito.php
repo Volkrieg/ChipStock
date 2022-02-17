@@ -29,7 +29,7 @@ function getNombre($id)
 
     $context = stream_context_create($opts);
 
-    $result = file_get_contents('http://localhost/Workspace/ChipStock/src/bbdd/CrudProducto.php?idproduct=' . $id, false, $context);
+    $result = file_get_contents('../src/bbdd/CrudProducto.php?idproduct=' . $id, false, $context);
 
     $datosSucios =  explode(',', $result);
 
@@ -55,21 +55,23 @@ function getPrecioCarro()
     $precioSuma = "0";
 
     for ($i = 0; $i < count($_SESSION['carrito']); $i++) {
-        $result = file_get_contents('http://localhost/Workspace/ChipStock/src/bbdd/CrudProducto.php?idproduct=' . $_SESSION['carrito'][$i], false, $context);
-        $resultado =  explode(',', $result);
-        $precio = $resultado[4];
-        $precioSuma = $precioSuma + quitarComillas($precio);
+        
+        // $result = file_get_contents(), false, $context);
+        // $resultado =  explode(',', $result);
+        // $precio = $resultado[4];
+        // $precioSuma = $precioSuma + quitarComillas($precio);
     }
+    
     return $precioSuma;
 }
 
+    
 $contenidoCarro = "";
 $precioCarro = "";
 
 if (!isset($_SESSION['carroNombres'])) {
     $_SESSION['carroNombres'] = array();
 } else {
-    if (count($_SESSION['carroNombres']) == 0) {
 
         for ($i = 0; $i < count($_SESSION['carrito']); $i++) {
 
@@ -79,7 +81,8 @@ if (!isset($_SESSION['carroNombres'])) {
                 $_SESSION['carroNombres'] += array(getNombre($_SESSION['carrito'][$i]) => 1);
             }
         }
-    }
+
+        $_SESSION['carrito'] = array();
 
     foreach ($_SESSION['carroNombres'] as $clave => $valor) {
         $contenidoCarro .= $clave . " x" . $valor . "<br>";
@@ -87,6 +90,7 @@ if (!isset($_SESSION['carroNombres'])) {
 
     $precioCarro .= getPrecioCarro() . "€";
 
-
+    echo $contenidoCarro;
+    echo dirname(__FILE__) . "\..\src\bbdd\CrudProducto.php";
 
 }
