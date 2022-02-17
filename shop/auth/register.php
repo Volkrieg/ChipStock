@@ -20,7 +20,7 @@
 
     <style>
         .input__text {
-            
+
             width: 100%;
             padding: 12px 20px;
             margin: 8px 0;
@@ -34,9 +34,12 @@
             margin-left: 65px;
         }
 
-        input:invalid {
+
+
+        label.error {
             color: red;
         }
+
     </style>
 
 </head>
@@ -58,9 +61,9 @@
                             <input type="text" id="apellidos" placeholder="Apellidos" name="apellidos" class="input__text">
                             <input type="email" id="email" placeholder="Correo electronico" name="email" class="input__text">
                             <input type="text" id="usuario" placeholder="Usuario" class="input__text" name="usuario">
-                            <input type="password" id="pass" placeholder="Contraseña" class="input__text" name="pass" >
+                            <input type="password" id="pass" placeholder="Contraseña" class="input__text" name="pass">
                             <br>
-                            <input type="submit" id="guardar" name="enviar" class="btn btn-secondary" value="Enviar">
+                            <input type="submit" id="guardar_register" name="enviar" class="btn btn-secondary" value="Enviar">
 
                             <br><b>¿Ya estás registrado?<a href="./login.html" class="link-info">Log in</a></b>
 
@@ -80,9 +83,9 @@
         </div>
     </section>
 
-    <!--Footer-->
-
-    <section class="">
+ <!-- Footer-->
+ <footer class="footer py-4">
+        </div>
         <div class="container text-center text-md-start mt-5">
             <!-- Grid row -->
             <div class="row mt-3">
@@ -90,17 +93,14 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                        <i class="fas fa-gem me-3"></i>Tienda AMC0016
+                        <i class="fas fa-gem me-3"></i>Chipstock
                     </h6>
                     <p>
                         Esta es una pagina ejemplo para el ejercicio de Entorno Servidor
                     </p>
                 </div>
-                <!-- Grid column -->
 
-                <!-- Grid column -->
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <!-- Links -->
                     <h6 class="text-uppercase fw-bold mb-4">Nuestros Productos</h6>
                     <p>
                         <a href="#!" class="text-reset">CPU</a>
@@ -111,11 +111,10 @@
                 </div>
 
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                    <!-- Links -->
                     <h6 class="text-uppercase fw-bold mb-4">Contactos</h6>
                     <p>
                         <i class="fas fa-home me-3"></i> Calle Emilio Soto S/N, Sevilla
-                        (España) MEDAC
+                        (España)
                     </p>
                     <p>
                         <i class="fas fa-envelope me-3"></i>
@@ -124,17 +123,9 @@
                     <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
                     <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
                 </div>
-                <!-- Copyright -->
-                <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-                    © 2022 Copyright:
-                    <a class="text-reset fw-bold" href="#">amc0016</a>
-                </div>
-                <!-- Copyright -->
-                <!-- Grid column -->
             </div>
-            <!-- Grid row -->
         </div>
-    </section>
+    </footer>
 
     <?php
 

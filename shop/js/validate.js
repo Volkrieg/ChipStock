@@ -72,6 +72,65 @@ $("#form_register").validate({
                        } 
 })
 
+$("#guardar_register").click(function(){
+  if($("form_register").valid() == false){
+      return;
+  }
+ let nombre = $("#nombre").val()
+ let apellidos = $("#apellidos").val()
+ let email = $("#email").val()
+ let usuario = $("#usuario").val()
+ let pass = $("#pass").val()
+ let aviso = $("#aviso").is(":checked")
+
+
+})
+
+
+
+
+
+
+$("#form_loginAdmin").validate({
+  rules: {
+               user: {
+                required:true, 
+                minlength:3, 
+                nowhitespace: true,
+              },
+               pass: {
+                 required:true,
+                 nowhitespace:true,
+               }
+
+
+             },
+             messages: {
+                         user: {
+                          required:"Campo usuario obligatorio.",
+                          nowhitespace:"El campo usuario no permite espacios en blanco.",
+                          alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
+                        },
+              
+                         pass: {
+                           required:"El campo contraseña obligatorio",
+                           nowhitespace:"La contraseña no admite espacios en blanco"
+                         }
+                       } 
+})
+
+
+
+$("#guardar_loginAdmin").click(function(){
+  if($("form_loginAdmin").valid() == false){
+     return;
+  }
+ let user = $("#nombre").val()
+ let pass = $("#pass").val()
+ let aviso = $("#aviso").is(":checked")
+
+
+})
 
 
 
@@ -79,18 +138,52 @@ $("#form_register").validate({
 
 
 
-$("#guardar").click(function(){
-   if($("form_register").valid() == false){
-       return;
-   }
-  let nombre = $("#nombre").val()
-  let apellidos = $("#apellidos").val()
-  let email = $("#email").val()
-  let usuario = $("#usuario").val()
-  let pass = $("#pass").val()
-  let aviso = $("#aviso").is(":checked")
 
-  console.log(nombre)
+
+
+
+
+
+
+
+$("#form_login").validate({
+  rules: {
+               user: {
+                required:true, 
+                minlength:3, 
+                nowhitespace: true,
+              },
+               pass: {
+                 required:true,
+                 nowhitespace:true,
+               }
+
+
+             },
+             messages: {
+                         user: {
+                          required:"Campo usuario obligatorio.",
+                          nowhitespace:"El campo usuario no permite espacios en blanco.",
+                          alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
+                        },
+              
+                         pass: {
+                           required:"El campo contraseña obligatorio",
+                           nowhitespace:"La contraseña no admite espacios en blanco"
+                         }
+                       } 
+})
+
+
+
+$("#guardar_login").click(function(){
+  if($("form_login").valid() == false){
+     return;
+  }
+ let user = $("#nombre").val()
+ let pass = $("#pass").val()
+ let aviso = $("#aviso").is(":checked")
+
 
 })
 
