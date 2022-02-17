@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="col-sm-6 px-0 d-none d-sm-block">
-                    <img src="./img1.jpg" alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+                    <img src="img1.jpg" alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
                 </div>
 
             </div>
@@ -148,10 +148,10 @@
 
                 $_SESSION['user'] = $_POST['user'];
 
-                header("location:../panelAdmin.php");
+                header("location:../admin/index.php");
 
                 if (isset($_SESSION['user'])) {
-                    header("location:panelAdmin.php");
+                    header("location:../admin/index.php");
                     ob_end_flush();
                 }
             } else {
