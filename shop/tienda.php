@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link" href="./tienda.php">Tienda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ChipStock/forum/index.php">Foro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../forum/index.php">Foro</a></li>
                     <!-- Button trigger modal -->
                     <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
                         <i class="fas fa-shopping-cart"></i>

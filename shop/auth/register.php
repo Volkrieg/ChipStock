@@ -14,6 +14,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
+
+
+    <link rel="stylesheet" href="..\js\validate.js">
+
     <style>
         .input__text {
             
@@ -46,20 +50,25 @@
 
                     <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-                        <form style="width: 23rem;" method="POST">
+                        <form id="form_register" style="width: 23rem;" method="POST">
 
                             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Registrarse</h3>
 
-                            <input type="text" placeholder="Nombre" name="name" class="input__text">
-                            <input type="text" placeholder="Apellidos" name="subname" class="input__text">
-                            <input type="text" placeholder="Usuario" id="usuario" class="input__text" name="user">
-                            <input type="text" placeholder="Contraseña" id="pass" class="input__text" name="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Debe contener al menos un número y una letra mayúscula y minúscula, y al menos 6 o más caracteres">
-                            <input type="email" placeholder="Correo electronico" name="email" class="input__text">
-                            <input type="submit" name="enviar" class="btn btn-secondary" value="Enviar">
+                            <input type="text" id="name" placeholder="Nombre" name="name" class="input__text">
+                            <input type="text" id="apellidos" placeholder="Apellidos" name="apellidos" class="input__text">
+                            <input type="email" id="email" placeholder="Correo electronico" name="email" class="input__text">
+                            <input type="text" id="usuario" placeholder="Usuario" class="input__text" name="usuario">
+                            <input type="password" id="pass" placeholder="Contraseña" class="input__text" name="pass" >
+                            <br>
+                            <input type="submit" id="guardar" name="enviar" class="btn btn-secondary" value="Enviar">
 
                             <br><b>¿Ya estás registrado?<a href="./login.html" class="link-info">Log in</a></b>
 
                         </form>
+
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+                        <script src="..\js\validate.js"></script>
 
                     </div>
 

@@ -11,7 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styleLogin.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="..\js\validate.js">
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
     <style>
         .input__text {
             width: 100%;
@@ -27,6 +33,8 @@
             margin-left: 65px;
         }
     </style>
+
+
 
 </head>
 
@@ -46,7 +54,7 @@
                             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log In Admin</h3>
 
                             <input type="text" placeholder="usuario" class="input__text" name="user">
-                            <input type="text" placeholder="contraseña" class="input__text" name="pass">
+                            <input type="password" placeholder="contraseña" class="input__text" name="pass">
                             <input type="submit" name="enviar" class="btn btn-secondary">
 
                         </form>
