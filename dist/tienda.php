@@ -101,10 +101,6 @@
         }
     }
 
-
-
-
-
     ?>
 
     <form action="./ejecutarCarrito.php">
