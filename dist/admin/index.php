@@ -56,6 +56,43 @@
             </div>
           </div>
         </form>
+        <form class="form-horizontal" id="productForm">
+          <div class="form-group row">
+            <label class="control-label col-sm-2" for="nombre">Nombre:</label>
+            <div class="col-sm-10">
+              <input type="nombre" class="form-control" id="nombre" placeholder="Ingrese nombre" name="nombre">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-sm-2" for="imagen">Imagen:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="imagen" placeholder="Ingrese imagen" name="imagen">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-sm-2" for="precio">Precio:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="precio" placeholder="Ingrese precio" name="precio">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-sm-2" for="categoria">Categoria:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="categoria" placeholder="Ingrese categoria" name="categoria">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="control-label col-sm-2" for="stock">Stock:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="stock" placeholder="Ingrese stock" name="stock">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-primary" id="insertarProducto">Insertar producto</button>
+            </div>
+          </div>
+        </form>
 
       </div>
     </div>

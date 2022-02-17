@@ -9,7 +9,18 @@
 	           }
 	       });
 	   	}
+	   	function loadTableDataProduct(){
+	       $.ajax({
+	           url : "verProducto.php",
+	           type : "POST",
+	           success:function(data){
+	              $("#tableData").html(data);
+	           }
+	       });
+	   	}
 	   	loadTableData();
+	   	loadTableDataProduct();
+	
 		$("#registro").click(function(e){
 			e.preventDefault();
 			var usuario = $("#usuario").val();
@@ -18,7 +29,6 @@
 			var rol = $("#rol").val();
 			var saldo = $("#saldo").val();
 			var password = $("#password").val();
-			if(usuario !=="" && email !=="" && nombre !=="" && rol !=="" && password !=="" && saldo !==""){
 				$.ajax({
 					url : "accion.php",
 					type: "POST",
@@ -30,9 +40,26 @@
 						loadTableData();
 					},
 				});
-			}else{
-				alert("Todos los campos son obligatorios");
-			}
+		});
+
+		$("#insertarProducto").click(function(e){
+			e.preventDefault();
+			var nombre = $("#nombre").val();
+			var imagen = $("#imagen").val();
+			var precio = $("#precio").val();
+			var categoria = $("#categoria").val();
+			var stock = $("#stock").val();
+				$.ajax({
+					url : "accionProducto.php",
+					type: "POST",
+					cache: false,
+					data : {nombre:nombre,imagen:imagen, precio:precio, categoria:categoria, stock:stock},
+					success:function(data){
+						alert("Datos insertados correctamente");
+						$("#productForm")[0].reset();
+						loadTableDataProduct();
+					},
+				});
 		});	
 
 		// Eliminar registro a MySql desde PHP usando jQuery AJAX
@@ -61,7 +88,19 @@
 		$(document).on("click",".editar-btn",function(){
 			var id = $(this).data('id');
 			$.ajax({
-				url :"extraer.php",
+				url :"extraer.php",	
+				type:"POST",
+				cache:false,
+				data:{editarId:id},
+				success:function(data){
+					$("#editarForm").html(data);
+				},
+			});
+		});
+		$(document).on("click",".editar-btn",function(){
+			var id = $(this).data('id');
+			$.ajax({
+				url :"extraerProducto.php",
 				type:"POST",
 				cache:false,
 				data:{editarId:id},
@@ -90,6 +129,29 @@
 					if (data == 1) {
 						alert("Registro de usuario actualizado correctamente");
 						loadTableData();
+					}else{
+						alert("Algo salió mal");	
+					}
+				}
+			});
+		});
+		$(document).on("click","#editarSubmit", function(){
+			var editar_id = $("#editarId").val();
+			var nombre = $("#editarNombre").val();
+			var imagen = $("#editarImagen").val();
+			var precio = $("#editarPrecio").val();
+			var categoria = $("#editarStock").val();
+			var stock = $("#editarSaldo").val();
+			
+			$.ajax({
+				url:"actualizarProducto.php",
+				type:"POST",
+				cache:false,
+				data:{editar_id:editar_id,nombre:nombre,nombre:nombre,imagen:imagen,precio:precio,categoria:categoria,stock:stock},
+				success:function(data){
+					if (data == 1) {
+						alert("Registro de producto actualizado correctamente");
+						loadTableDataProduct();
 					}else{
 						alert("Algo salió mal");	
 					}
