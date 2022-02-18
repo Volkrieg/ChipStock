@@ -88,9 +88,6 @@ $("#guardar_register").click(function(){
 
 
 
-
-
-
 $("#form_loginAdmin").validate({
   rules: {
                user: {
@@ -131,18 +128,6 @@ $("#guardar_loginAdmin").click(function(){
 
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -187,6 +172,193 @@ $("#guardar_login").click(function(){
 
 })
 
+
+
+$("#form_panelAdmin").validate({
+  rules: {
+               usuario: {
+                required:true, 
+                minlength:3, 
+                nowhitespace: true,
+              },
+               nombre: {
+                 required:true,
+                 nowhitespace:true,
+               },
+
+               rol: {
+                required:true,
+                nowhitespace:true,
+              },
+
+              saldo: {
+                required:true,
+                nowhitespace:true,
+              },
+
+              pwd: {
+                required:true,
+                nowhitespace:true,
+              },
+
+              imagen: {
+                required:true,
+                nowhitespace:true,
+              },
+
+              precio: {
+                required:true,
+                nowhitespace:true,
+              },
+
+              categoria: {
+                required:true,
+                nowhitespace:true,
+              },
+
+              stock: {
+                required:true,
+                nowhitespace:true,
+              },
+             },
+             messages: {
+                         usuario: {
+                          required:"Campo usuario obligatorio.",
+                          nowhitespace:"El campo usuario no permite espacios en blanco.",
+                          alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
+                        },
+
+                        nombre: {
+                          required:"Campo usuario obligatorio.",
+                          nowhitespace:"El campo usuario no permite espacios en blanco.",
+                          alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
+                        },
+
+                        rol: {
+                          required:"Campo usuario obligatorio.",
+                          nowhitespace:"El campo usuario no permite espacios en blanco.",
+                          alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
+                        },
+
+                        pwd: {
+                          required:"Campo usuario obligatorio.",
+                          nowhitespace:"El campo usuario no permite espacios en blanco.",
+                          alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
+                        },
+              
+                         imagen: {
+                           required:"El campo contraseña obligatorio",
+                           nowhitespace:"La contraseña no admite espacios en blanco"
+                         },
+
+                         precio: {
+                          required:"Campo usuario obligatorio.",
+                          nowhitespace:"El campo usuario no permite espacios en blanco.",
+                          alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
+                        },
+
+                        categoria: {
+                          required:"Campo usuario obligatorio.",
+                          nowhitespace:"El campo usuario no permite espacios en blanco.",
+                          alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
+                        },
+
+                        stock: {
+                          required:"Campo usuario obligatorio.",
+                          nowhitespace:"El campo usuario no permite espacios en blanco.",
+                          alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
+                        },
+                       } 
+})
+
+
+
+$("#guardar_panelAdmin").click(function(){
+  if($("form_panelAdmin").valid() == false){
+     return;
+  }
+ let user = $("#nombre").val()
+ let pass = $("#pass").val()
+ let aviso = $("#aviso").is(":checked")
+
+
+})
+
+
+
+
+$("#form_panelAdmin2").validate({
+  rules: {
+  
+    nombre: {
+      required:true,
+      nowhitespace:true,
+    },
+
+              imagen: {
+                required:true,
+                nowhitespace:true,
+              },
+
+              precio: {
+                required:true,
+                nowhitespace:true,
+              },
+
+              categoria: {
+                required:true,
+                nowhitespace:true,
+              },
+
+              stock: {
+                required:true,
+                nowhitespace:true,
+              },
+             },
+             messages: {
+                        nombre: {
+                          required:"Campo usuario obligatorio.",
+                          nowhitespace:"El campo usuario no permite espacios en blanco.",
+                          alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
+                        },
+              
+                         imagen: {
+                           required:"El campo contraseña obligatorio",
+                           nowhitespace:"La contraseña no admite espacios en blanco"
+                         },
+
+                         precio: {
+                          required:"Campo usuario obligatorio.",
+                          nowhitespace:"El campo usuario no permite espacios en blanco.",
+                          alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
+                        },
+
+                        categoria: {
+                          required:"Campo usuario obligatorio.",
+                          nowhitespace:"El campo usuario no permite espacios en blanco.",
+                          alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
+                        },
+
+                        stock: {
+                          required:"Campo usuario obligatorio.",
+                          nowhitespace:"El campo usuario no permite espacios en blanco.",
+                          alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
+                        },
+                       } 
+})
+
+
+
+$("#guardar_panelAdmin2").click(function(){
+  if($("form_panelAdmin2").valid() == false){
+     return;
+  }
+ let user = $("#nombre").val()
+ let pass = $("#pass").val()
+ let aviso = $("#aviso").is(":checked")
+
+
+})
 
 
 

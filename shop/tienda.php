@@ -63,6 +63,9 @@
     </header>
 
     <?php
+
+    error_reporting(0);
+
     include('mostrarCarrito.php');
     $servername = "localhost";
     $username = "root";
