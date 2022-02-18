@@ -14,7 +14,7 @@
 	           url : "verProducto.php",
 	           type : "POST",
 	           success:function(data){
-	              $("#tableData").html(data);
+	              $("#tableDataProducts").html(data);
 	           }
 	       });
 	   	}

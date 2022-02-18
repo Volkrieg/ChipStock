@@ -3,14 +3,14 @@ $("#form_register").validate({
                name: {
                  required:true, 
                  minlength:3, 
-                 maxlength:9,
+                 maxlength:30,
                  alphanumeric: true,
                  nowhitespace: true,
                },
                apellidos: {
                 required:true, 
                 minlength:3, 
-                maxlength:9,
+                maxlength:30,
                 alphanumeric: true,
                 nowhitespace: true,
               },
@@ -229,45 +229,29 @@ $("#form_panelAdmin").validate({
                         },
 
                         nombre: {
-                          required:"Campo usuario obligatorio.",
+                          required:"Campo nombre obligatorio.",
                           nowhitespace:"El campo usuario no permite espacios en blanco.",
                           alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
                         },
 
                         rol: {
-                          required:"Campo usuario obligatorio.",
+                          required:"Campo rol obligatorio.",
                           nowhitespace:"El campo usuario no permite espacios en blanco.",
                           alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
                         },
 
                         pwd: {
-                          required:"Campo usuario obligatorio.",
-                          nowhitespace:"El campo usuario no permite espacios en blanco.",
-                          alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
-                        },
-              
-                         imagen: {
-                           required:"El campo contraseña obligatorio",
-                           nowhitespace:"La contraseña no admite espacios en blanco"
-                         },
-
-                         precio: {
-                          required:"Campo usuario obligatorio.",
+                          required:"Campo contraseña obligatorio.",
                           nowhitespace:"El campo usuario no permite espacios en blanco.",
                           alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
                         },
 
-                        categoria: {
-                          required:"Campo usuario obligatorio.",
+                         saldo: {
+                          required:"Campo saldo obligatorio.",
                           nowhitespace:"El campo usuario no permite espacios en blanco.",
                           alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
                         },
 
-                        stock: {
-                          required:"Campo usuario obligatorio.",
-                          nowhitespace:"El campo usuario no permite espacios en blanco.",
-                          alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
-                        },
                        } 
 })
 
@@ -317,30 +301,30 @@ $("#form_panelAdmin2").validate({
              },
              messages: {
                         nombre: {
-                          required:"Campo usuario obligatorio.",
+                          required:"Campo nombre obligatorio.",
                           nowhitespace:"El campo usuario no permite espacios en blanco.",
                           alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
                         },
               
                          imagen: {
-                           required:"El campo contraseña obligatorio",
+                           required:"Campo imagen obligatorio",
                            nowhitespace:"La contraseña no admite espacios en blanco"
                          },
 
                          precio: {
-                          required:"Campo usuario obligatorio.",
+                          required:"Campo precio obligatorio.",
                           nowhitespace:"El campo usuario no permite espacios en blanco.",
                           alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
                         },
 
                         categoria: {
-                          required:"Campo usuario obligatorio.",
+                          required:"Campo categoria obligatorio.",
                           nowhitespace:"El campo usuario no permite espacios en blanco.",
                           alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
                         },
 
                         stock: {
-                          required:"Campo usuario obligatorio.",
+                          required:"Campo stock obligatorio.",
                           nowhitespace:"El campo usuario no permite espacios en blanco.",
                           alphanumeric:"El campo usuario solo admite caracteres alfanuméricos."
                         },
