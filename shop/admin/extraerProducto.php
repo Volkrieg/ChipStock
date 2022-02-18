@@ -3,16 +3,16 @@
 require_once('dbcon.php');
 
 if (isset($_POST['editarId'])) {
-	$editarId = $_POST['editarId'];
+    $editarId = $_POST['editarId'];
 }
 // extraer tabla clientes..
 
 $sql = "SELECT * FROM products WHERE idproduct = {$editarId}";
 $query = $con->query($sql);
 if ($query->num_rows > 0) {
-	$output = "";
-	while ($row = $query->fetch_assoc()) {
-		$output .= "<form>
+    $output = "";
+    while ($row = $query->fetch_assoc()) {
+        $output .= "<form>
                       <div class='modal-body'>
                       	<input type='hidden' class='form-control' id='editarId' value='{$row['idproduct']}'>
                         <div class='form-group'>
@@ -37,11 +37,11 @@ if ($query->num_rows > 0) {
                         </div>
                       </div>
                       <div class='modal-footer'>
-                        <button type='button' class='btn btn-secondary' data-dismiss='modal'>Cerrar</button>
-                        <button type='button' class='btn btn-info' id='editarSubmit'>Guardar cambios</button>
+                        <button type='button' class='btn btn-danger' data-dismiss='modal'>Cerrar</button>
+                        <button type='button' class='btn btn-primary' id='editarSubmit'>Guardar cambios</button>
                       </div>
                   </form>";
-	}
-	$output .= "</table>";
+    }
+    $output .= "</table>";
 }
 echo $output;

@@ -81,6 +81,20 @@
 						}
 					}
 				});
+				$.ajax({
+					url :"borrarProducto.php",
+					type:"POST",
+					cache:false,
+					data:{borrarId:id},
+					success:function(data){
+						if (data == 1) {
+							$(element).closest("tr").fadeOut();
+							alert("Producto eliminado correctamente");	
+						}else{
+							alert("Identificación de producto inválida");
+						}
+					}
+				});
 			}
 		});
 

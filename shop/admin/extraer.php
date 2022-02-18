@@ -41,8 +41,8 @@ if ($query->num_rows > 0) {
                         </div>
                       </div>
                       <div class='modal-footer'>
-                        <button type='button' class='btn btn-secondary' data-dismiss='modal'>Cerrar</button>
-                        <button type='button' class='btn btn-info' id='editarSubmit'>Guardar cambios</button>
+                        <button type='button' class='btn btn-danger' data-dismiss='modal'>Cerrar</button>
+                        <button type='button' class='btn btn-primary' id='editarSubmit'>Guardar cambios</button>
                       </div>
                   </form>";
 	}
